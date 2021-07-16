@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id ='demo'></p>
+    <table border width =20% >
+        
+            <tr>
+                <th>Name</th>
+                <th >Age</th>
+                <th>phone</th>
+                <th>gender</th>
+
+            </tr>
+        
+            <tbody id="tableData"></tbody>
+        </table>
+        <script type="text/javascript">
+            var a = [
+                {
+                    name: "bhawna",
+                    age:  21,
+                    phone:123456788,
+                    gender: "F"
+                },
+                {
+                    name: "lavina",
+                    age:  24,
+                    phone:123489388,
+                    gender: "F"
+                    
+                },
+                {
+                    name: "aarushi",
+                    age:  21,
+                    phone:123443788,
+                    gender: "F"
+                }
+            ];
+            var k = '<tbody>'
+            for(i = 0;i < a.length; i++){
+                 k+= '<tr>';
+                k+= '<td>' + a[i].name + '</td>';
+                
+                 k+= '<td>' + a[i].age + '</td>';
+                 
+                 k+= '<td>' + a[i].phone + '</td>';
+                k+= '<td>' + a[i].gender + '</td>';
+                k+= '</tr>';
+            }
+            k+='</tbody>';
+            document.getElementById('tableData').innerHTML = k;
+            document.write(`length of array:${a.length}`)
+            const myJSON = JSON.stringify(a);
+            document.getElementById("demo").innerHTML = myJSON;
+           
+            </script>
+</body>
+</html>
