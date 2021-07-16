@@ -1,0 +1,3 @@
+constructor
+ copyWithin()
+Set the length of an array:    array.length = number

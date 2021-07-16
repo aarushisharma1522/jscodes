@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+click to remove
+<select id="mySelect">
+
+
+
+
+<input type="text" id="result" placeholder="type the text"/>
+</select>
+<button type="button" onclick="myFunction() ">remove</button>
+<button type="button" onclick="myFunc() ">add</button>
+<script>type="text/javascript">
+function myFunction() {
+  var x = document.getElementById("mySelect").selectedIndex;
+  var y = document.getElementById("mySelect").option;
+  y[x].remove()
+
+  
+}
+
+function myFunc() {
+  var a = document.getElementById("mySelect");
+  var option = document.createElement("OPTION");
+  option.innerHTML = document.getElementById("result").value;
+  a.options.add(option, a[0]);
+}
+</script>
+
+</body>
+</html>

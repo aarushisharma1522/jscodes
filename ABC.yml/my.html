@@ -1,0 +1,162 @@
+<html >
+<head>
+    
+    <style>
+        *{
+            background-color: rgb(219, 213, 213) ;
+        }
+        .box{
+        
+            margin-left: 30px;
+            margin-right: auto;
+            margin-top:30px;
+            border-radius: 40px;
+            padding : 10px;
+            border-color: black;
+            min-width: 250px;
+            max-width: 300px;
+            /* background-color:rgb(235, 230, 212); */
+            
+            
+        }
+        #result{
+            border-radius: 17px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            background-color: white;
+            box-shadow: 1px 2px 10px black;      
+            width: 96%;
+            height: 40px;
+            border-color: black;
+            text-align: right;
+
+
+        }
+        /* table{
+            border-block-color: white ;
+            
+        
+        } */
+        
+
+        input[type="button" ]{
+            width: 45px;
+            height:25px;        
+            
+            color: black ;
+            background-color: rgb(160, 41, 41) ;
+            border-left-color: bisque;
+            border-right-style: hidden;
+            border-left-style: hidden;
+            border-top-style: groove;
+            border-top-color:rgb(160, 41, 41);
+            border-radius: 28px;
+            box-shadow: 2px 5px 4px rgb(29, 4, 4);
+            text-shadow:2px 1px 2px black ;
+            margin: -1px;
+            
+                  
+        }
+        
+
+        input[type="text" ]{
+            background-color: rgba(61, 48, 48, 0.075);
+            color: black;
+        }
+        .title{
+            /* padding:20px; */
+            padding-top:20px;
+            width: 300px;
+            text-align: center;
+            text-shadow:3px 3px 3px grey;
+        }
+        td{
+            border-top-color: grey;
+            border-style: dotted;
+            border-left-color: grey;
+            border-right-color: white;
+            border-bottom-color:white;
+            border-radius:20px;
+            
+        }
+
+        
+        
+
+    </style>
+</head>
+<body>
+    <div class="title">Welcome to the Calculator!! </div>  
+    <table class ="box" border= 3px cellspacing='3 px' cellpadding='4 px' >
+        <tr>
+           <td colspan="4"><input type="text" id="result" placeholder="0" readonly /></td>
+           
+        </tr> 
+        
+        
+    <tr>  
+
+        <td><input type="button" value="sq" onclick="sqr()" /> </td>
+        <td><input type="button" value="clr" onclick="clr()"/> </td>
+        <td><input type="button" value="dlt" onclick="dlt()"/> </td>
+        <td><input type="button" value="-" onclick="show('-')"/> </td>
+
+    </tr>
+    <tr>
+        <td><input type="button" value="1" onclick="show('1')"/></td>
+        <td><input type="button" value="2" onclick="show('2')"/> </td>
+        <td><input type="button" value="3" onclick="show('3')"/> </td>
+        <td><input type="button" value="*" onclick="show('*')"/> </td>
+
+     </tr>
+     <tr>
+        <td><input type="button" value="4" onclick="show('4')"/> </td>
+        <td><input type="button" value="5" onclick="show('5')"/> </td>
+        <td><input type="button" value="6" onclick="show('6')"/> </td>
+        <td><input type="button" value="/" onclick="show('/')"/> </td>
+     </tr>
+     <tr>
+        <td><input type="button" value="7" onclick="show('7')"/> </td>
+        <td><input type="button" value= "8" onclick="show('8')"/> </td>
+        <td><input type="button" value="9" onclick="show('9')"/> </td>
+        <td><input type="button" value="+" onclick="show('+')"/> </td>
+     </tr>
+     <tr>
+        <td><input type="button" value="." onclick="show('.')"/> </td>
+        <td><input type="button" value="0" onclick="show('0')"/> </td>
+        <td><input type="button" value="00" onclick="show('00')"/> </td>
+        <td id="equalsto" ><input type="button" value= "=" onclick="answer()" /> </td>
+        
+     </tr>
+  </table>  
+  <script>
+    function show(a){ 
+             document.getElementById("result").value+=a
+         }
+    function answer(){
+             let x = document.getElementById("result").value
+             let y = eval(x)
+
+             document.getElementById("result").value = y
+         }
+    function clr()
+    {
+        document.getElementById("result").value = ""
+         }
+
+    function dlt()
+    {
+        let c= result.value.slice(0,-1)
+
+        document.getElementById("result").value = c
+         }
+    function sqr()
+    {
+        let z= document.getElementById("result").value
+        let w= Math.pow(document.getElementById("result").value,2)
+        document.getElementById("result").value=w
+        var x= 3;
+    }
+  </script>
+</body>
+</html>

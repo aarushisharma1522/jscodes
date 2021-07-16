@@ -1,0 +1,28 @@
+git log
+git clone "repo path"   https, SSH
+git status
+git add select path
+git add .
+git commit -m "message"
+git push origin "branch-name"
+git branch --local branch
+git branch -a 
+
+
+production/master--
+staging- 
+qa --
+developement- 
+
+git checkout -b "branch-name" ///new branch will create 
+
+git status 
+git add . 
+git commit -m "msg"
+git push origin "branch-name" 
+
+
+git pull ===> git fetch   git rebase--
+
+
+
