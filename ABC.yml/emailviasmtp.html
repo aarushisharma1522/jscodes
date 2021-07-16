@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>  
+	<script type="text/javascript">
+		function sendmail() {
+            var name = document.getElementById("name").value;
+            var s=document.getElementById("subject").value;
+            var c=document.getElementById("message").value;
+            var to= document.getElementById("semail").value;
+            var z= 'Name: '+name+ '<br> Subject: '+s+'<br>Message: '+c;
+			Email.send({
+                SecureToken:"1dba0bd5-6820-426b-860d-b33c89bfcc81",
+                   To: to,
+                   From: "aarushi.sharma@binmilecom",
+                   Subject: s,
+                   Body: z
+			})
+			.then(function(message){
+				alert("mail sent successfully")
+			});
+		}
+	</script>
+</head>
+<body>  
+	<form method="post">
+        <input type="text" name="name" id="name" placeholder="name"><br><br>
+        <input type="email" name="semail" id="semail" placeholder="Email"><br><br>
+        <input type="text" name="subject" id="subject" placeholder="Subject"><br><br>
+        <input type="text" name="message" id="message" placeholder="Message"><br><br>
+        <input type="button" name="send" value="send" id="send" onclick="sendmail()">
+    
+        </form>
+</body>
+</html>
