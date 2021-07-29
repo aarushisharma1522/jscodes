@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <input type="text" name="text" id="text">
+<input type="button" value="add" onclick="fetch()">
+</head>
+<body>
+    <p id ='demo'></p>
+    <table class="table table-hover">
+        
+            <tr>
+                <th>Name</th>
+                <th >Age</th>
+                <th>phone</th>
+                <th>gender</th>
+                <th>edit buttons</th>
+                <th>dlt buttons</th>
+
+            </tr>
+        
+            <tbody id="tableData"></tbody>
+        </table>
+        <script type="text/javascript">
+            var a = [
+                {
+                    name: "bhawna",
+                    age:  21,
+                    phone:123456788,
+                    gender: "F"
+                },
+                {
+                    name: "lavina",
+                    age:  24,
+                    phone:123489388,
+                    gender: "F"
+                    
+                },
+                {
+                    name: "aarushi",
+                    age:  21,
+                    phone:123443788,
+                    gender: "F"
+                }
+            ];
+            var k = '<tbody>'
+            for(i = 0;i < a.length; i++){
+                 k+= '<tr>';
+                k+= '<td>' + a[i].name + '</td>';
+                
+                k+= '<td>' + a[i].age + '</td>';
+                 
+                k+= '<td>' + a[i].phone + '</td>';
+                k+= '<td>' + a[i].gender + '</td>';
+                k += '<td><button onclick="a.edit(' + i + ')">Edit</button></td>';
+                k += '<td><button onclick="a.delete(' + i + ')">Delete</button></td>';
+                k+= '</tr>';
+            }
+            k+='</tbody>';
+            document.getElementById('tableData').innerHTML = k;
+            document.write(`length of array:${a.length}`)
+            // const myJSON = JSON.stringify(a);
+            // document.getElementById("demo").innerHTML = myJSON;
+
+
+        
+            </script>
+</body>
+</html>
