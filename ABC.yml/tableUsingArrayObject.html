@@ -1,73 +1,228 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
+    <title>Bootstraped table </title>
     <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <input type="text" name="text" id="text">
-<input type="button" value="add" onclick="fetch()">
+
 </head>
-<body>
-    <p id ='demo'></p>
-    <table class="table table-hover">
-        
-            <tr>
-                <th>Name</th>
-                <th >Age</th>
-                <th>phone</th>
-                <th>gender</th>
-                <th>edit buttons</th>
-                <th>dlt buttons</th>
 
-            </tr>
-        
-            <tbody id="tableData"></tbody>
+<body id="body">
+
+    <div id="wrapper">
+        <table id="t" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
         </table>
-        <script type="text/javascript">
-            var a = [
-                {
-                    name: "bhawna",
-                    age:  21,
-                    phone:123456788,
-                    gender: "F"
-                },
-                {
-                    name: "lavina",
-                    age:  24,
-                    phone:123489388,
-                    gender: "F"
-                    
-                },
-                {
-                    name: "aarushi",
-                    age:  21,
-                    phone:123443788,
-                    gender: "F"
-                }
-            ];
-            var k = '<tbody>'
-            for(i = 0;i < a.length; i++){
-                 k+= '<tr>';
-                k+= '<td>' + a[i].name + '</td>';
-                
-                k+= '<td>' + a[i].age + '</td>';
-                 
-                k+= '<td>' + a[i].phone + '</td>';
-                k+= '<td>' + a[i].gender + '</td>';
-                k += '<td><button onclick="a.edit(' + i + ')">Edit</button></td>';
-                k += '<td><button onclick="a.delete(' + i + ')">Delete</button></td>';
-                k+= '</tr>';
-            }
-            k+='</tbody>';
-            document.getElementById('tableData').innerHTML = k;
-            document.write(`length of array:${a.length}`)
-            // const myJSON = JSON.stringify(a);
-            // document.getElementById("demo").innerHTML = myJSON;
-
-
+    </div>
+    <div>
         
-            </script>
+        Name :<input type="text" name="fname" id="name" autocomplete="none">
+        Age:<input type="text" name="age" id="age">
+        Phone :<input type="number" name="phone" id="phone">
+        Gender :<input type="text" name="phone" id="gender">
+
+        Address :<input type="text" name="adress" id="adress">
+
+
+        <button type="submit" onclick="addHtmlTableRow()">Add</button>
+    </div>
+
+    <div>
+        <button id="dis" onclick='display()'> Display</button>
+    </div>
+
 </body>
+
 </html>
+
+
+<script>
+    var arr = [
+        {
+            name: "bhawna",
+            age: 21,
+            phone: 123456788,
+            gender: "F",
+            adress: 'abc'
+        },
+        {
+            name: "shreya",
+            age: 22,
+            phone: 123489388,
+            gender: "F",
+            adress: 'xyz'
+        },
+        {
+            name: "lavina",
+            age: 24,
+            phone: 123489388,
+            gender: "F",
+            adress: 'abc'
+        },
+        {
+            name: "priya",
+            age: 28,
+            phone: 1233849388,
+            gender: "F",
+            adress: 'xyz'
+        },
+        {
+            name: "lavi",
+            age: 24,
+            phone: 123489388,
+            gender: "F",
+            adress: 'abc'
+        },
+        {
+            name: "Shivani",
+            age: 24,
+            phone: 123734988,
+            gender: "F",
+            adress: 'xyz'
+        },
+        {
+            name: "rohit",
+            age: 23,
+            phone: 1234683788,
+            gender: "M",
+            adress: 'asbc'
+        },
+        {
+            name: "aarushi",
+            age: 21,
+            phone: 123443788,
+            gender: "F",
+            adress: 'abc'
+        }];
+    var rIndex;
+
+    function display() {
+        var length = arr.length;
+        var k = "";
+        for (var i = 0; i < length; i++) {
+            console.log(arr[i]);
+            k += "<tr id='table" + i + "'><td>"
+                + arr[i].name +
+                "</td><td>"
+                + arr[i].age +
+                "</td><td>"
+                + arr[i].phone +
+                "</td><td>"
+                + arr[i].gender +
+                "</td><td>"
+                + arr[i].adress +
+                "</td><td><button onclick='edit(" + i + ")'>Edit</button><button onclick='remove(" + i + ")'>Remove</button></td></tr>";
+        }
+        document.getElementById("tbody").innerHTML = k;
+
+    }
+    // window.onload=function(){<!--  ww  w  .  java2  s. c o  m-->
+    // document.getElementById("toggle").style.visibility="hidden";
+    // document.getElementById("tbody").innerHTML = k;
+    var table = document.getElementById("t");
+    function edit(iz) {
+        var k = "<tr><td><input id='inputname" + iz + "' type='text' value='"
+            + arr[iz].name +
+            "'></td><td><input id='inputage" + iz + "' type='text' value='"
+            + arr[iz].age +
+            "'></td><td><input id='inputphone" + iz + "' type='text' value='"
+            + arr[iz].phone +
+            "'></td><td><input id='inputgender" + iz + "' type='text' value='"
+            + arr[iz].gender +
+            "'></td><td><input id='inputadress" + iz + "' type='text' value='"
+            + arr[iz].adress +
+            "'></td><td><button onclick='save(" + iz + ")'>Save</button><button onclick='remove(" + iz + ")'>Remove</button></td></tr>";
+        document.getElementById("table" + iz).innerHTML = k;
+        console.log(k)
+    }
+
+
+    function save(iz) {
+        arr[iz].name = document.getElementById("inputname" + iz).value;
+        arr[iz].age = document.getElementById("inputage" + iz).value;
+        arr[iz].phone = document.getElementById("inputphone" + iz).value;
+        arr[iz].gender = document.getElementById("inputgender" + iz).value;
+        arr[iz].adress = document.getElementById("inputadress" + iz).value;
+
+        var k = "<tr id='table" + iz + "'><td>"
+            + arr[iz].name +
+            "</td><td>"
+            + arr[iz].age +
+            "</td><td>"
+            + arr[iz].phone +
+            "</td><td>"
+            + arr[iz].gender +
+            "</td><td>"
+
+            + arr[iz].adress +
+            "</td><td><button onclick='edit("
+            + iz + ")'>Edit</button><button onclick='remove("
+            + iz + ")'>Remove</button></td></tr>";
+        document.getElementById("table" + iz).innerHTML = k;
+    }
+    function addHtmlTableRow() {
+
+        var newRow = table.insertRow(table.length),
+            cell1 = newRow.insertCell(0),
+            cell2 = newRow.insertCell(1),
+            cell3 = newRow.insertCell(2),
+            cell4 = newRow.insertCell(3),
+            cell5 = newRow.insertCell(4),
+            cell6 = newRow.insertCell(5),
+            cell7 = newRow.insertCell(6);
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+        var phone = document.getElementById("phone").value;
+        var gender = document.getElementById("gender").value;
+        var address = document.getElementById("adress").value;
+
+
+
+        cell1.innerHTML = name;
+        cell2.innerHTML = age;
+        cell3.innerHTML = phone;
+        cell4.innerHTML = gender;
+        cell5.innerHTML = address;
+        cell6.innerHTML = `<button onclick='edit()'>Edit</button><button onclick='remove()'>Remove</button>`;
+
+        selectedRowToInput();
+
+    }
+
+
+    function selectedRowToInput() {
+
+        for (var i = 1; i < t.rows.length; i++) {
+            table.rows[i].onclick = function () {
+
+                rIndex = this.rowIndex;
+                document.getElementById("name").value = this.cells[0].innerHTML
+                document.getElementById("age").value = this.cells[1].innerHTML
+                document.getElementById("phone").value = this.cells[2].innerHTML;
+                document.getElementById("gender").value = this.cells[3].innerHTML;
+                document.getElementById("adress").value = this.cells[4].innerHTML;
+
+            }
+        }
+    }
+    selectedRowToInput();
+
+    function remove(iz) {
+        console.log(arr);
+        arr.splice(iz, 1);
+        display();
+    }
+</script>
